@@ -1159,12 +1159,7 @@ function toggleCopyStatus(id, st) {
 function postCopyComment(id, ta) {
   const text = ta.value.trim();
   if (!text) return;
-  const author = reviewerInput.value.trim();
-  if (!author) {
-    reviewerInput.focus();
-    toast("Add your name to post a comment");
-    return;
-  }
+  const author = reviewerInput.value.trim() || "Anonymous";
   state[copyKey(id)].comments.push({ text, author, ts: Date.now() });
   saveState();
   renderTotals();
@@ -1250,19 +1245,7 @@ composer.addEventListener("keydown", e => {
 function postComment() {
   const text = composer.value.trim();
   if (!text) return;
-  const author = reviewerInput.value.trim();
-  if (!author) {
-    reviewerInput.focus();
-    toast("Add your name to post a comment");
-    return;
-  }
-  const ad = ADS[focusIdx];
-  state[adKey(ad.id)].comments.push({ text, author, ts: Date.now() });
-  saveState();
-  renderTotals();
-  renderGrid();
-  renderFocus();
-}
+const author = reviewerInput.value.trim() || "Anonymous";
 
 function refreshPostButton() {
   const postBtn = document.getElementById("btn-post");
@@ -1473,8 +1456,8 @@ const sendBtn = document.getElementById("btn-send");
 function refreshSendButton() {
   const st = sendBtn.dataset.state;
   if (st === "sending" || st === "success") return;
-  sendBtn.disabled = !reviewer.trim();
-  sendBtn.textContent = sendBtn.disabled ? "Add reviewer name to send" : "Send to FlyTech";
+  sendBtn.disabled = false;
+  sendBtn.textContent = "Send to FlyTech";
 }
 
 function escMrkdwn(s) {
