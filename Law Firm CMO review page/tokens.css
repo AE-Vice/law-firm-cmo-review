@@ -1,0 +1,64 @@
+:root {
+  /* Paper-stock cream / ink-navy palette */
+  --paper: #f5efe4;
+  --paper-deep: #ece4d4;
+  --paper-line: #d9cfba;
+  --ink: #0e1c33;
+  --ink-soft: #36465f;
+  --ink-mute: #6b7791;
+  --ink-faint: #9aa3b8;
+
+  --teal: #1f7a78;
+  --teal-soft: #2f9a96;
+  --gold: #c08a2e;
+  --gold-soft: #e0a94a;
+  --green: #2f7a4a;
+  --green-soft: #4aa46d;
+  --red: #a23b2c;
+
+  /* Roles */
+  --bg: var(--paper);
+  --surface: #fbf7ee;
+  --surface-2: #f0e9da;
+  --line: var(--paper-line);
+  --line-soft: #e3dac6;
+
+  --status-approved: var(--green);
+  --status-changes: var(--gold);
+  --status-pending: var(--ink);
+
+  --shadow-card: 0 1px 0 rgba(14,28,51,.04), 0 18px 36px -22px rgba(14,28,51,.22);
+  --shadow-pop: 0 30px 80px -30px rgba(14,28,51,.45), 0 2px 0 rgba(14,28,51,.05);
+
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 16px;
+
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+/* Client palette — auto-extracted from ad attachments at build time */
+:root {
+  --client-ink: #013A55;     /* extracted dominant dark — deep navy/teal */
+  --client-accent: #0A6391;  /* extracted dominant accent — medium blue */
+  --client-bg: #E8F4FA;      /* extracted dominant background — pale cyan */
+
+  /* Re-map the chrome tokens to the client palette */
+  --ink: var(--client-ink);
+  --teal: var(--client-accent);
+  --teal-soft: color-mix(in srgb, var(--client-accent) 80%, white 20%);
+  --paper: var(--client-bg);
+  --paper-deep: color-mix(in srgb, var(--client-bg) 92%, var(--client-ink) 8%);
+  --paper-line: color-mix(in srgb, var(--client-bg) 80%, var(--client-ink) 20%);
+  --bg: var(--paper);
+  --surface: color-mix(in srgb, var(--client-bg) 96%, white 4%);
+  --surface-2: var(--paper-deep);
+  --line: var(--paper-line);
+  --line-soft: color-mix(in srgb, var(--client-bg) 88%, var(--client-ink) 12%);
+  --status-pending: var(--client-ink);
+  --ink-soft: color-mix(in srgb, var(--client-ink) 70%, var(--client-bg) 30%);
+  --ink-mute: color-mix(in srgb, var(--client-ink) 50%, var(--client-bg) 50%);
+  --ink-faint: color-mix(in srgb, var(--client-ink) 35%, var(--client-bg) 65%);
+}
